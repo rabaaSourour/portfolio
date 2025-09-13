@@ -1,0 +1,242 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #27ae60);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #e0e0e0;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* Dégradé animé */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Mode clair */
+body.light {
+    background: linear-gradient(-45deg, #f9f6ef, #f1e7d3, #e8dbc4, #f7f3e9);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #2c3e50;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+}
+
+body.light .navbar {
+    background: rgba(255, 255, 255, 0);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #91ac87;
+}
+
+/* Switch container */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+/* Hide checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider background */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111;
+    border-radius: 30px;
+    transition: background 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    color: #f1c40f;
+    /* couleur soleil */
+    font-size: 0.9rem;
+}
+
+/* Round toggle knob */
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: #ccc;
+    transition: transform 0.4s;
+}
+
+/* Checkbox checked = mode clair */
+input:checked+.slider {
+    background-color: #ddd;
+    color: #2c3e50;
+}
+
+/* Knob moves when checked */
+input:checked+.slider::before {
+    transform: translateX(30px);
+}
+
+
+/* Hero */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: #b5d3c8;
+}
+
+body.light .hero h1 {
+    color: #3e4a47;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin: 1rem 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: #51555a;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #91ac87;
+    transform: translateY(-3px);
+}
+
+/* Sections */
+section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #91ac87;
+    font-size: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.light .card {
+    background: #fff7ec;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Barre sociale verticale */
+.social-bar {
+    position: fixed;
+    top: 40%;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.social-bar a {
+    font-size: 1.5rem;
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-bar a:hover {
+    color: #91ac87;
+    transform: scale(1.2);
+}
